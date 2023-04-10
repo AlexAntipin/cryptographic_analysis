@@ -28,17 +28,17 @@ def bigram_freq_mantrix(text):
     for bigram in freq:
         freq[bigram] /= total
 
-    # вывод эталонной матрицы частот биграмм
-    print("     ", end = " ")
-    for c1 in alphabet:
-        print(c1, end="        ")
-    print()
-
-    for c1 in alphabet:
-        print(c1, end = " ")
-        for c2 in alphabet:
-            print("{:.6f}".format(freq[c1+c2]), end=" ")
-        print()
+    # # вывод эталонной матрицы частот биграмм
+    # print("     ", end = " ")
+    # for c1 in alphabet:
+    #     print(c1, end="        ")
+    # print()
+    #
+    # for c1 in alphabet:
+    #     print(c1, end = " ")
+    #     for c2 in alphabet:
+    #         print("{:.6f}".format(freq[c1+c2]), end=" ")
+    #     print()
     return freq
 
 
@@ -133,7 +133,58 @@ def jacobsen():
         w_full += abs(new_freq[key] - freq[key])
     print(f'Выводим значение целочисленной функции = {w_full}')
 
+
+
+
+    new_test_key = []
+
+
+    print()
+    flag = False
+    #5 шаг
+    while True:
+        print(f'Защлии')
+        if new_test_key == test_key:
+            break
+        else:
+            if not flag:
+                new_test_key = test_key[:]
+                flag = True
+            test_key = new_test_key[:]
+            for j in range(period):
+                #new_test_key = test_key[:]
+                znak = new_test_key[j]
+                for i in english_alphabet:
+                    new_test_key[j] = i
+
+                    #Расшифровываем на новом ключе
+                    new_test_decrypt = vigenere_decrypt(chiper_text, new_test_key, english_alphabet)
+
+                    # 3 шаг алгоритма, матрица частот биграмм в новом текст, полученным на 2 шаге
+                    new_freq = bigram_freq_mantrix(new_test_decrypt)
+                    freq = bigram_freq_mantrix(text)
+
+
+                    #Вычисляем значение целевой функции
+                    new_w_full = 0
+                    for key in freq:
+                        new_w_full += abs(new_freq[key] - freq[key])
+                    #print(f'Выводим значение целочисленной функции = {new_w_full}')
+                    #print(f'Выводим = {w_full}')
+                    if new_w_full <= w_full:
+                        znak = i
+                        print(f'Выводим знак = {znak}')
+                        w_full = new_w_full
+
+                print(f'Старый ключ = {new_test_key}')
+                new_test_key[j] = znak
+                print(f'Новый ключ = {new_test_key}')
+                print(f'Выведем старый ключ = {test_key}')
+
+
+
+
+
 freq = bigram_freq_mantrix(text)
 shifr_vigener()
 jacobsen()
-print(freq)
