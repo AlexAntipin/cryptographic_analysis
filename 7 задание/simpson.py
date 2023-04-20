@@ -58,13 +58,18 @@ for i in range(len(plaintext)):
 with open('chiper_text.txt', 'w') as f:
     f.write(ciphertext)
 
-period_key = 4
+
+with open('period_key.txt', 'r') as f:
+    period_key = int(f.read())
+
 
 sequence = ['' for i in range(period_key)]
 print(ciphertext)
 print(sequence)
 for i in range(len(ciphertext)):
     sequence[i % period_key] = sequence[i % period_key] + ciphertext[i]
+
+
 
 #Создание словаря английского алфавита
 english_alphabet_dict = {}
@@ -90,13 +95,53 @@ for k in range(1, period_key):
             delta = midle_index
             delta_letter = i
     delta_spis.append(delta_letter)
-    print(f'Дельта = {delta}')
-    print(f'Дельта = {delta_letter}')
+    #print(f'Дельта = {delta}')
+    #print(f'Дельта = {delta_letter}')
+
+
+print(f"Выводим дельта список {delta_spis}")
+
+
+#Вычисляем частотный анализ
+
+chast_dict = {}
+
+
+for i in english_alphabet:
+    chast_dict[i] = 0
+
+for i in ciphertext:
+    chast_dict[i] += 1
+len_ciper = len(ciphertext)
+
+for i in english_alphabet:
+    chast_dict[i] /= len_ciper
+    chast_dict[i] *= 100
+
+max_symbol = ''
+chast_max = 0
+for i in english_alphabet:
+    if chast_dict[i] > chast_max:
+        max_symbol = i
+        chast_max = chast_dict[i]
+#print(max_symbol)
+
 
 with open('output.txt', 'w') as f:
     for i in range(len(english_alphabet)):
         line = english_alphabet[i]
         for j in range(len(delta_spis)):
             line += english_alphabet[(i + delta_spis[j]) % len(english_alphabet)]
-        print(line)
+        #print(line)
         f.write(line + '\n')
+
+with open('output_1.txt', 'w') as f:
+    line = max_symbol
+    for i in range(len(english_alphabet)):
+        if english_alphabet[i] == max_symbol:
+            i_help = i
+
+    for j in range(len(delta_spis)):
+        line += english_alphabet[(i_help + delta_spis[j]) % len(english_alphabet)]
+    print(line)
+    f.write(line + '\n')

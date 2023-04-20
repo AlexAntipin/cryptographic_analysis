@@ -3,7 +3,8 @@ import random
 def shifr():
 
     file = open("opentext.txt", "r")
-    text = file.read()
+    text = file.read().lower()
+    text = text.replace(" ", "")
     file.close()
 
     print("Введите длину ключу, моноциклической перестановки = ", end = '')

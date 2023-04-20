@@ -1,7 +1,7 @@
 import random
 import math
 
-with open("text.txt", "r") as f:
+with open("text_2.txt", "r") as f:
     text = f.read()
 
 def bigram_freq_mantrix(text):
@@ -53,7 +53,7 @@ def shifr_vigener():
         key = f.read().strip()
 
     # Считываем открытый текст
-    with open('text.txt', 'r') as f:
+    with open('text_2.txt', 'r') as f:
         text = f.read().strip().lower()
 
     print(text)
