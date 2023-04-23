@@ -35,7 +35,7 @@ with open('key.txt', 'r') as f:
     key = f.read().strip()
 
 # Генерируем случайную строку из 100 английских букв
-plaintext = ''.join(random.choices(english_alphabet, k=100))
+plaintext = ''.join(random.choices(english_alphabet, k = 100))
 
 # Шифруем строку с помощью шифра Виженера
 ciphertext = ''
