@@ -23,20 +23,30 @@ def create_base():
             mult *= j
         dict_mult[mult] = i
 
-    print(dict_mult)
+    #print(dict_mult)
 
     sorted_dict_mult = sorted(dict_mult.items(), reverse = True)
 
-    print(sorted_dict_mult)
+    #print(sorted_dict_mult)
 
     #Записываем Наши множители
-    # with open("base.txt", "w") as f:
+    with open("base.txt", "w") as f:
+        for i in sorted_dict_mult:
+            #print(i[0])
+            #print(i[1])
+            f.write(str(i[0]) + " ")
+            for j in i[1]:
+                f.write(str(j) + " ")
+            f.write('\n')
+
+
 
     return sorted_dict_mult
 
 def method_probn_del(sorted_dict_mult):
     print("Введите число = ", end = '')
     n = int(input())
+    print(f"Множители числа {n}:")
     mnog = []
     for i in sorted_dict_mult:
         while n % i[0] == 0:
@@ -45,6 +55,7 @@ def method_probn_del(sorted_dict_mult):
 
             n /=  i[0]
     mnog.sort()
+
     for i in mnog:
         print(i, end = " ")
 
