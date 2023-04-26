@@ -4,7 +4,7 @@ from itertools import combinations_with_replacement
 def create_base():
 
     #Считываем файл с простыми множителям
-    with open("base_simple_multiplier.txt", "r") as f:
+    with open("primes_database.txt", "r") as f:
         numbers = list(map(int, f.read().split()))
         print(numbers)
 

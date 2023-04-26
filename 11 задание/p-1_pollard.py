@@ -16,21 +16,24 @@ import random
 
 
 
-def primes(n):
+def primes():
+    primes_list = []
+    with open("../9 задание/primes_database.txt", "r") as f:
+        for line in f:
+            number = int(line[:-1])
+            primes_list.append(number)
 
-    with open("primes_database.txt", "r") as f:
-        for i in
-
+    return primes_list[:-1]
 
 def p_1_pollard():
 
     print("Введите нечетное n = ", end='')
     n = int(input())
-    print("Введите ограничение по базе с = ", end='')
-    c = int(input())
+    #print("Введите ограничение по базе с = ", end='')
+    #c = int(input())
 
     #1 шаг алгоритма
-    base = primes(c)
+    base = primes()
 
     #2 шаг алгоритма
     a = random.randint(2, n - 2)

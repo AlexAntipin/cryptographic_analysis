@@ -124,7 +124,7 @@ for i in english_alphabet:
     if chast_dict[i] > chast_max:
         max_symbol = i
         chast_max = chast_dict[i]
-#print(max_symbol)
+print(chast_dict)
 
 
 with open('output.txt', 'w') as f:
