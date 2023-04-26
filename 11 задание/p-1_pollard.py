@@ -2,21 +2,27 @@ import math
 import random
 
 
+# def primes(n):
+#     primes_list = []  # создаем пустой список для хранения простых чисел
+#     for num in range(2, n + 1):  # перебираем все числа от 2 до n
+#         is_prime = True  # считаем, что число простое, пока не доказано обратное
+#         for i in range(2, num):  # перебираем все числа от 2 до num-1
+#             if num % i == 0:  # если число num делится на i без остатка
+#                 is_prime = False  # то число num не является простым
+#                 break  # выходим из цикла, так как уже доказали, что число num не простое
+#         if is_prime:  # если число num оказалось простым
+#             primes_list.append(num)  # добавляем его в список простых чисел
+#     return primes_list  # возвращаем список простых чисел
+
+
+
 def primes(n):
-    primes_list = []  # создаем пустой список для хранения простых чисел
-    for num in range(2, n + 1):  # перебираем все числа от 2 до n
-        is_prime = True  # считаем, что число простое, пока не доказано обратное
-        for i in range(2, num):  # перебираем все числа от 2 до num-1
-            if num % i == 0:  # если число num делится на i без остатка
-                is_prime = False  # то число num не является простым
-                break  # выходим из цикла, так как уже доказали, что число num не простое
-        if is_prime:  # если число num оказалось простым
-            primes_list.append(num)  # добавляем его в список простых чисел
-    return primes_list  # возвращаем список простых чисел
+
+    with open("primes_database.txt", "r") as f:
+        for i in
 
 
 def p_1_pollard():
-    print("f")
 
     print("Введите нечетное n = ", end='')
     n = int(input())
