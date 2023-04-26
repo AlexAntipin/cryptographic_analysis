@@ -18,7 +18,7 @@ import random
 
 def primes():
     primes_list = []
-    with open("../9 задание/primes_database.txt", "r") as f:
+    with open("primes_database.txt", "r") as f:
         for line in f:
             number = int(line[:-1])
             primes_list.append(number)
