@@ -6,7 +6,6 @@ def create_base():
 
     #Считываем файл с простыми множителям
     with open("primes_database.txt", "r") as f:
-
             for line in f:
                 number = int(line[:-1])
                 numbers.append(number)
