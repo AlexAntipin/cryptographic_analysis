@@ -2,11 +2,15 @@ from itertools import combinations_with_replacement
 
 
 def create_base():
+    numbers = []
 
     #Считываем файл с простыми множителям
     with open("primes_database.txt", "r") as f:
-        numbers = list(map(int, f.read().split()))
-        print(numbers)
+
+            for line in f:
+                number = int(line[:-1])
+                numbers.append(number)
+    numbers = numbers[:-1]
 
     print("Введите параметр t = ", end = '')
     t = int(input())
