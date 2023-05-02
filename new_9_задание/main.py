@@ -60,7 +60,6 @@ def division():
         elif cmd == 2:
             division_method()
         else:
-            print()
             return
 
 
