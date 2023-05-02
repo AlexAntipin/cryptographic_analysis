@@ -21,7 +21,7 @@ def ferma():
             t = int(math.sqrt(s ** 2 - k * n))
             #print(f'Выводим t {t}')
             #print(f'Выводим s {s}')
-            p = math.gcd(k * n, s - t)
+            p = math.gcd(n, math.gcd(k * n, s - t))
             #print(f'Выводим kn {k * n} и выводим s - t {s-t}')
             print(f'Выводим {p}')
             break

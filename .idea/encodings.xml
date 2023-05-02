@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding">
+    <file url="file://$PROJECT_DIR$/new_3_задание/3/3/3/alph.txt" charset="windows-1251" />
+    <file url="file://$PROJECT_DIR$/new_3_задание/3/3/3/brute.txt" charset="windows-1251" />
+    <file url="file://$PROJECT_DIR$/new_3_задание/3/3/3/decrypted_text.txt" charset="windows-1251" />
+    <file url="file://$PROJECT_DIR$/new_3_задание/3/3/3/encrypted_text.txt" charset="windows-1251" />
+    <file url="file://$PROJECT_DIR$/new_3_задание/3/3/3/forbidden_bigrams.txt" charset="windows-1251" />
+  </component>
+</project>
